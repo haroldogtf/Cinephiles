@@ -6,6 +6,7 @@
 //
 
 import PKHUD
+import Reachability
 import UIKit
 
 class MoviesViewController: UIViewController {
@@ -25,6 +26,7 @@ class MoviesViewController: UIViewController {
 
         setupTableView()
         setupSearch()
+        setupReachability()
         loadData()
     }
 
@@ -41,8 +43,12 @@ class MoviesViewController: UIViewController {
         navigationItem.searchController = searchController
     }
 
+    func setupReachability() {
+        ReachabilityManager.shared.addListener(self)
+    }
+
     func loadData() {
-        if ReachabilityManager.shared.hasInternetConnection() {
+        if ReachabilityManager.shared.hasConnection() {
             HUD.show(.progress)
             fetchData()
         }
@@ -177,6 +183,16 @@ extension MoviesViewController: UISearchBarDelegate {
         }
 
         tableView.reloadData()
+    }
+    
+}
+
+extension MoviesViewController: NetworkStatusListener {
+    
+    func networkStatusDidChange(status: Reachability.Connection) {
+        if status != .none && movies.count == 0 {
+            loadData()
+        }
     }
     
 }
