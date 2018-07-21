@@ -5,6 +5,7 @@
 //  Created by Haroldo Gondim on 20/07/18.
 //
 
+import SDWebImage
 import UIKit
 
 class MovieTableViewCell: UITableViewCell {
@@ -21,7 +22,10 @@ class MovieTableViewCell: UITableViewCell {
     }
 
     func fill(movie: Movie) {
-        //moviePosterImageView.image =
+        if let posterPath = movie.posterPath {
+            let posterURL = Constants.API_URL_IMAGE + posterPath
+            moviePosterImageView.sd_setImage(with: URL(string: posterURL), placeholderImage: #imageLiteral(resourceName: "placeholder"))
+        }
         movieTitleLabel.text = movie.title
     }
 

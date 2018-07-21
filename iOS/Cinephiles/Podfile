@@ -7,5 +7,6 @@ target 'Cinephiles' do
 
   pod 'Alamofire'
   pod 'AlamofireObjectMapper'
+  pod 'SDWebImage'
 
 end
