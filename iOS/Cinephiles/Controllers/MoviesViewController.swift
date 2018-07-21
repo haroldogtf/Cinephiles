@@ -45,6 +45,7 @@ class MoviesViewController: UIViewController {
             self.fetchingData = false
             self.page += 1
             self.movies += movies
+            self.movies.sort(by: { $0.popularity ?? 0 > $1.popularity ?? 0 })
             self.tableView.reloadData()
         }
     }
@@ -116,7 +117,6 @@ extension MoviesViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            
             var movie:Movie
             if searching {
                 movie = filteredMovies[indexPath.row]
