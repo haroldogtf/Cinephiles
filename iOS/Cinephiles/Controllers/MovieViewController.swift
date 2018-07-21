@@ -14,7 +14,7 @@ class MovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(movie?.title ?? "")
+        navigationItem.title = movie?.title
     }
 
 }
