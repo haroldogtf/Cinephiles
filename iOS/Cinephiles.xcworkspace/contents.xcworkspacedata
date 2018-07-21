@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/haroldo.gondim/Developer/Cinephiles/iOS/Cinephiles/Managers/ReachabilityManager.swift">
-   </FileRef>
-   <FileRef
       location = "group:Cinephiles.xcodeproj">
    </FileRef>
    <FileRef

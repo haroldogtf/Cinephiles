@@ -42,8 +42,10 @@ class MoviesViewController: UIViewController {
     }
 
     func loadData() {
-        HUD.show(.progress)
-        fetchData()
+        if ReachabilityManager.shared.hasInternetConnection() {
+            HUD.show(.progress)
+            fetchData()
+        }
     }
 
     func fetchData() {
