@@ -5,6 +5,7 @@
 //  Created by Haroldo Gondim on 20/07/18.
 //
 
+import PKHUD
 import UIKit
 
 class MoviesViewController: UIViewController {
@@ -41,12 +42,18 @@ class MoviesViewController: UIViewController {
     }
 
     func loadData() {
+        HUD.show(.progress)
+        fetchData()
+    }
+
+    func fetchData() {
         MoviesAPIManager.getPopupar(page: page) { (movies, error) in
             self.fetchingData = false
             self.page += 1
             self.movies += movies
             self.movies.sort(by: { $0.popularity ?? 0 > $1.popularity ?? 0 })
             self.tableView.reloadData()
+            HUD.hide()
         }
     }
 
@@ -56,15 +63,15 @@ class MoviesViewController: UIViewController {
         
         if offsetY > contentHeight - scrollView.frame.height {
             if !fetchingData && !searching {
-                fetchData()
+                fetchMoreData()
             }
         }
     }
 
-    func fetchData() {
+    func fetchMoreData() {
         fetchingData = true
         tableView.reloadSections(IndexSet(integer: 1), with: .none)
-        loadData()
+        fetchMoreData()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -134,10 +141,12 @@ extension MoviesViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searching = true
         
+        HUD.show(.progress)
         MoviesAPIManager.searchBy(string: searchBar.text ?? "") { (movies, error) in
             self.filteredMovies = movies
             self.filteredMovies.sort(by: { $0.popularity ?? 0 > $1.popularity ?? 0 })
             self.tableView.reloadData()
+            HUD.hide()
             
             self.movies += movies
             self.movies = Array(Set<Movie>(self.movies)) // remove duplicates
