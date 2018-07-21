@@ -1,5 +1,5 @@
 //
-//  Movies.swift
+//  Movie.swift
 //  Cinephiles
 //
 //  Created by Haroldo Gondim on 20/07/18.
@@ -12,7 +12,7 @@ class MoviesList: Mappable  {
     var page: Int?
     var totalResults: Int?
     var totalPages: Int?
-    var movies: [Movies]?
+    var movies: [Movie]?
 
     required init?(map: Map) { }
 
@@ -25,7 +25,7 @@ class MoviesList: Mappable  {
 
 }
 
-class Movies: Mappable  {
+class Movie: Mappable  {
     
     var title: String?
     var posterURL: String?

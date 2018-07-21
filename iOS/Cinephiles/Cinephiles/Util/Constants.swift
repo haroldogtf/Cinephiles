@@ -12,4 +12,6 @@ struct Constants {
     static let API_URL = "https://api.themoviedb.org/3"
     static let API_URL_IMAGE = "https://image.tmdb.org/t/p/w500"
 
+    static let IDENTIFIER_MOVIE_TABLEVIEWCELL = String(describing: MovieTableViewCell.self)
+
 }
