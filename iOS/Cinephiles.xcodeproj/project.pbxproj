@@ -12,6 +12,8 @@
 		63483F792102A19800C7B7B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63483F782102A19800C7B7B9 /* Constants.swift */; };
 		63483F7D2102A6CC00C7B7B9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63483F7C2102A6CC00C7B7B9 /* Movie.swift */; };
 		63483F7F2102B60300C7B7B9 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63483F7E2102B60300C7B7B9 /* MovieTableViewCell.swift */; };
+		63483F832103895300C7B7B9 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63483F812103895300C7B7B9 /* LoadingTableViewCell.xib */; };
+		63483F862103A84400C7B7B9 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63483F852103A84400C7B7B9 /* LoadingTableViewCell.swift */; };
 		63893FCE210289E800A7D0D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63893FCD210289E800A7D0D8 /* AppDelegate.swift */; };
 		63893FD0210289E800A7D0D8 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63893FCF210289E800A7D0D8 /* MoviesViewController.swift */; };
 		63893FD3210289E800A7D0D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63893FD1210289E800A7D0D8 /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 		63483F782102A19800C7B7B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		63483F7C2102A6CC00C7B7B9 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		63483F7E2102B60300C7B7B9 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		63483F812103895300C7B7B9 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
+		63483F852103A84400C7B7B9 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoadingTableViewCell.swift; path = Cinephiles/Controllers/LoadingTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		63893FCA210289E800A7D0D8 /* Cinephiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinephiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63893FCD210289E800A7D0D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63893FCF210289E800A7D0D8 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 			children = (
 				63893FCF210289E800A7D0D8 /* MoviesViewController.swift */,
 				63483F7E2102B60300C7B7B9 /* MovieTableViewCell.swift */,
+				63483F852103A84400C7B7B9 /* LoadingTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -94,6 +99,15 @@
 				63483F7C2102A6CC00C7B7B9 /* Movie.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		63483F842103896500C7B7B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				63893FD1210289E800A7D0D8 /* Main.storyboard */,
+				63483F812103895300C7B7B9 /* LoadingTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		63893FC1210289E800A7D0D8 = {
@@ -118,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				63893FCD210289E800A7D0D8 /* AppDelegate.swift */,
-				63893FD1210289E800A7D0D8 /* Main.storyboard */,
+				63483F842103896500C7B7B9 /* Views */,
 				63483F732102A0F400C7B7B9 /* Controllers */,
 				63483F7B2102A1A700C7B7B9 /* Managers */,
 				63483F7A2102A19C00C7B7B9 /* Util */,
@@ -196,6 +210,7 @@
 			files = (
 				63893FD8210289E900A7D0D8 /* LaunchScreen.storyboard in Resources */,
 				63893FD5210289E900A7D0D8 /* Assets.xcassets in Resources */,
+				63483F832103895300C7B7B9 /* LoadingTableViewCell.xib in Resources */,
 				63893FD3210289E800A7D0D8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +273,7 @@
 				63483F7D2102A6CC00C7B7B9 /* Movie.swift in Sources */,
 				63483F752102A17600C7B7B9 /* MoviesAPIManager.swift in Sources */,
 				63893FCE210289E800A7D0D8 /* AppDelegate.swift in Sources */,
+				63483F862103A84400C7B7B9 /* LoadingTableViewCell.swift in Sources */,
 				63483F772102A18500C7B7B9 /* Util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,7 +421,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/Cinephiles/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.haroldo.Cinephiles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -420,7 +439,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/Cinephiles/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.haroldo.Cinephiles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
