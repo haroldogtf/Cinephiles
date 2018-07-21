@@ -28,11 +28,13 @@ class MoviesList: Mappable  {
 class Movies: Mappable  {
     
     var title: String?
-    
+    var posterURL: String?
+
     required init?(map: Map) { }
     
     func mapping(map: Map) {
         title <- map["title"]
+        posterURL <- map["poster_path"]
     }
     
 }
