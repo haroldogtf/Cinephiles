@@ -32,7 +32,7 @@ class Movie: Mappable  {
     var posterPath: String?
     var backdropPath: String?
     var overview: String?
-    var relaseDate: String?
+    var releaseDate: String?
     var genreId: [Int]?
 
     required init?(map: Map) { }
@@ -41,7 +41,7 @@ class Movie: Mappable  {
         title <- map["title"]
         popularity <- map["popularity"]
         overview <- map["overview"]
-        relaseDate <- map["relase_date"]
+        releaseDate <- map["release_date"]
         genreId <- map["genre_ids"]
         posterPath <- map["poster_path"]
         backdropPath <- map["backdrop_path"]
@@ -52,13 +52,13 @@ class Movie: Mappable  {
 extension Movie: Hashable {
 
     var hashValue: Int {
-        return ((title ?? "") + (overview ?? "") + (relaseDate ?? "")).hashValue
+        return ((title ?? "") + (overview ?? "") + (releaseDate ?? "")).hashValue
     }
     
     static func == (lhs: Movie, rhs: Movie) -> Bool {
         return lhs.title == rhs.title
             && lhs.overview == rhs.overview
-            && lhs.relaseDate == rhs.relaseDate
+            && lhs.releaseDate == rhs.releaseDate
     }
 
 }
