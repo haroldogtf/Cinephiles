@@ -12,8 +12,8 @@ class MoviesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     var movies:[Movie] = []
-    var fetchingMoreData = false
-    var paging = 1
+    var fetchingData = false
+    var page = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +28,9 @@ class MoviesViewController: UIViewController {
     }
 
     func loadData() {
-        MoviesAPIManager.getPopupar(page: paging) { (movies, error) in
-            self.fetchingMoreData = false
-            self.paging += 1
+        MoviesAPIManager.getPopupar(page: page) { (movies, error) in
+            self.fetchingData = false
+            self.page += 1
             self.movies += movies
             self.tableView.reloadData()
         }
@@ -41,14 +41,14 @@ class MoviesViewController: UIViewController {
         let contentHeight = scrollView.contentSize.height
         
         if offsetY > contentHeight - scrollView.frame.height {
-            if !fetchingMoreData {
+            if !fetchingData {
                 fetchData()
             }
         }
     }
 
     func fetchData() {
-        fetchingMoreData = true
+        fetchingData = true
         tableView.reloadSections(IndexSet(integer: 1), with: .none)
         loadData()
     }
@@ -71,7 +71,7 @@ extension MoviesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return movies.count
-        } else if section == 1 && fetchingMoreData {
+        } else if section == 1 && fetchingData {
             return 1
         }
         return 0
