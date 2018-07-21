@@ -29,12 +29,20 @@ class Movie: Mappable  {
     
     var title: String?
     var posterPath: String?
+    var backdropPath: String?
+    var overview: String?
+    var relaseDate: String?
+    var genreId: [Int]?
 
     required init?(map: Map) { }
     
     func mapping(map: Map) {
         title <- map["title"]
+        overview <- map["overview"]
+        relaseDate <- map["relase_date"]
+        genreId <- map["genre_ids"]
         posterPath <- map["poster_path"]
+        backdropPath <- map["backdrop_path"]
     }
     
 }
