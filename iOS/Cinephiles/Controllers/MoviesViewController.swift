@@ -53,6 +53,13 @@ class MoviesViewController: UIViewController {
         loadData()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.IDENTIFIER_MOVIE_VIEWCONTROLLER {
+            let movieViewController = segue.destination as! MovieViewController
+            movieViewController.movie = sender as? Movie
+        }
+    }
+
 }
 
 extension MoviesViewController: UITableViewDataSource {
@@ -64,7 +71,6 @@ extension MoviesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return movies.count
-        
         } else if section == 1 && fetchingMoreData {
             return 1
         }
@@ -87,5 +93,11 @@ extension MoviesViewController: UITableViewDataSource {
 }
 
 extension MoviesViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            performSegue(withIdentifier: Constants.IDENTIFIER_MOVIE_VIEWCONTROLLER, sender: movies[indexPath.row])
+        }
+    }
     
 }

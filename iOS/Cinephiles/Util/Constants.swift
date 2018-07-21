@@ -14,5 +14,6 @@ struct Constants {
 
     static let IDENTIFIER_LOADING_TABLEVIEWCELL = String(describing: LoadingTableViewCell.self)
     static let IDENTIFIER_MOVIE_TABLEVIEWCELL = String(describing: MovieTableViewCell.self)
+    static let IDENTIFIER_MOVIE_VIEWCONTROLLER = String(describing: MovieViewController.self)
 
 }
