@@ -20,11 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(_ application: UIApplication) { }
 
-    func applicationWillEnterForeground(_ application: UIApplication) { }
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        ReachabilityManager.shared.stopMonitoring()
+    }
 
-    func applicationDidBecomeActive(_ application: UIApplication) { }
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        ReachabilityManager.shared.startMonitoring()
+    }
 
     func applicationWillTerminate(_ application: UIApplication) { }
 
 }
-
