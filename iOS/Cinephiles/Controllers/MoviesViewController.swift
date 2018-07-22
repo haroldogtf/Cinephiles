@@ -74,16 +74,19 @@ class MoviesViewController: UIViewController {
 
     func fetchData() {
         MoviesAPIManager.getPopular(page: page) { (movies, error) in
-            if error == nil {
+            HUD.hide()
+
+            Util.checkError(self, error: error, f: {
                 self.fetchingData = false
                 self.page += 1
                 self.movies += movies
                 self.movies.sort(by: { $0.popularity ?? 0 > $1.popularity ?? 0 })
                 self.tableView.reloadData()
-                HUD.hide()
-            }
+            })
         }
     }
+
+
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
@@ -187,7 +190,7 @@ extension MoviesViewController: UISearchBarDelegate {
         MoviesAPIManager.searchBy(string: searchBar.text ?? "") { (movies, error) in
             HUD.hide()
 
-            if error == nil {
+            Util.checkError(self, error: error, f: {
                 if movies.count == 0 {
                     self.showViewInTableView(view: self.emptySearchView)
 
@@ -202,7 +205,7 @@ extension MoviesViewController: UISearchBarDelegate {
                 }
             
                 self.tableView.reloadData()
-            }
+            })
         }
         
     }

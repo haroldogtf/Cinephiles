@@ -16,4 +16,8 @@ struct Constants {
     static let IDENTIFIER_MOVIE_TABLEVIEWCELL = String(describing: MovieTableViewCell.self)
     static let IDENTIFIER_MOVIE_VIEWCONTROLLER = String(describing: MovieViewController.self)
 
+    static let ERROR_SERVER_GENERAL_ERRROR = "The server has a problem, please try again."
+
+    static let STRING_OK = "Ok"
+
 }
