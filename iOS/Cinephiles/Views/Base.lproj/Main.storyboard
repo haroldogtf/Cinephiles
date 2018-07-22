@@ -27,6 +27,15 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="nVZ-gH-Hrh">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.2156862745" green="0.62745098040000002" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Exo-Bold" family="Exo" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Exo-Bold" family="Exo" pointSize="33"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -49,35 +58,35 @@
                                 <rect key="frame" x="0.0" y="140" width="375" height="638"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieTableViewCell" rowHeight="274" id="FIZ-Ua-TIT" customClass="MovieTableViewCell" customModule="Cinephiles" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="274"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieTableViewCell" rowHeight="140" id="FIZ-Ua-TIT" customClass="MovieTableViewCell" customModule="Cinephiles" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FIZ-Ua-TIT" id="Uad-pJ-Dxw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="273.66666666666669"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="139.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IjB-WA-CTY">
-                                                    <rect key="frame" x="15" y="12" width="167" height="250"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="140"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="250" id="Kdb-qZ-QiI"/>
-                                                        <constraint firstAttribute="width" constant="167" id="yJq-Ol-5AW"/>
+                                                        <constraint firstAttribute="height" constant="140" id="Rz7-hD-95z"/>
+                                                        <constraint firstAttribute="width" constant="100" id="zKh-ed-RIv"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okC-Ye-NYF">
-                                                    <rect key="frame" x="194" y="12" width="166" height="250"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="110" y="21" width="260" height="29.333333333333329"/>
+                                                    <fontDescription key="fontDescription" name="Exo-Bold" family="Exo" pointSize="22"/>
+                                                    <color key="textColor" red="0.2156862745" green="0.62745098040000002" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="okC-Ye-NYF" firstAttribute="top" secondItem="Uad-pJ-Dxw" secondAttribute="topMargin" constant="1" id="4H0-qz-htf"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="okC-Ye-NYF" secondAttribute="bottom" constant="1" id="7tY-4w-f5q"/>
-                                                <constraint firstItem="IjB-WA-CTY" firstAttribute="top" secondItem="Uad-pJ-Dxw" secondAttribute="topMargin" constant="1" id="KHu-rW-wxe"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="IjB-WA-CTY" secondAttribute="bottom" constant="1" id="lFp-Cz-nUT"/>
-                                                <constraint firstItem="okC-Ye-NYF" firstAttribute="leading" secondItem="IjB-WA-CTY" secondAttribute="trailing" constant="12" id="lxz-fv-B1p"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="okC-Ye-NYF" secondAttribute="trailing" id="n53-pi-fbE"/>
-                                                <constraint firstItem="IjB-WA-CTY" firstAttribute="leading" secondItem="Uad-pJ-Dxw" secondAttribute="leadingMargin" id="xB8-vV-Qiz"/>
+                                                <constraint firstItem="IjB-WA-CTY" firstAttribute="leading" secondItem="Uad-pJ-Dxw" secondAttribute="leading" id="8Nc-fs-nhA"/>
+                                                <constraint firstItem="okC-Ye-NYF" firstAttribute="top" secondItem="Uad-pJ-Dxw" secondAttribute="topMargin" constant="10" id="QIA-Vw-XyL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="okC-Ye-NYF" secondAttribute="bottom" constant="10" id="Qoy-Wy-zXg"/>
+                                                <constraint firstItem="okC-Ye-NYF" firstAttribute="leading" secondItem="IjB-WA-CTY" secondAttribute="trailing" constant="10" id="TWS-Oh-8yK"/>
+                                                <constraint firstItem="okC-Ye-NYF" firstAttribute="trailing" secondItem="Uad-pJ-Dxw" secondAttribute="trailingMargin" constant="10" id="YjT-oq-k4Y"/>
+                                                <constraint firstAttribute="bottom" secondItem="IjB-WA-CTY" secondAttribute="bottom" id="lCD-ae-y3X"/>
+                                                <constraint firstItem="IjB-WA-CTY" firstAttribute="top" secondItem="Uad-pJ-Dxw" secondAttribute="top" id="mKU-Oh-4L1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -166,7 +175,7 @@
                     <viewLayoutGuide key="safeArea" id="cTT-dw-e18"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="972" y="33.733133433283363"/>
+            <point key="canvasLocation" x="972" y="33.251231527093594"/>
         </scene>
         <!--Movie View Controller-->
         <scene sceneID="4BD-IP-jlR">
