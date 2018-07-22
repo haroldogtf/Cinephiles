@@ -15,7 +15,10 @@ class MoviesViewController: UIViewController {
     @IBOutlet var noConnectionView: UIView!
     @IBOutlet var noFilteredMoviesView: UIView!
     @IBOutlet var emptySearchView: UIView!
-    
+
+    let MAIN_SECTION = 0
+    let LOADING_SECTION = 1
+
     var movies:[Movie] = []
     var fetchingData = false
     var page = 1
@@ -70,13 +73,15 @@ class MoviesViewController: UIViewController {
     }
 
     func fetchData() {
-        MoviesAPIManager.getPopupar(page: page) { (movies, error) in
-            self.fetchingData = false
-            self.page += 1
-            self.movies += movies
-            self.movies.sort(by: { $0.popularity ?? 0 > $1.popularity ?? 0 })
-            self.tableView.reloadData()
-            HUD.hide()
+        MoviesAPIManager.getPopular(page: page) { (movies, error) in
+            if error == nil {
+                self.fetchingData = false
+                self.page += 1
+                self.movies += movies
+                self.movies.sort(by: { $0.popularity ?? 0 > $1.popularity ?? 0 })
+                self.tableView.reloadData()
+                HUD.hide()
+            }
         }
     }
 
@@ -113,33 +118,42 @@ extension MoviesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        if section == MAIN_SECTION {
+
             if searching {
                 if filteredMovies.count == 0 && tableView.backgroundView != emptySearchView {
                    showViewInTableView(view: noFilteredMoviesView)
                 }
                 return filteredMovies.count
             }
+
             return movies.count
-        } else if section == 1 && fetchingData {
+    
+        } else if section == LOADING_SECTION && fetchingData {
             return 1
         }
+    
         return 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+        if indexPath.section == MAIN_SECTION {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.IDENTIFIER_MOVIE_TABLEVIEWCELL) as! MovieTableViewCell
+            
+            var movie: Movie
             if searching {
-                cell.fill(movie: filteredMovies[indexPath.row])
+                movie = filteredMovies[indexPath.row]
             } else {
-                cell.fill(movie: movies[indexPath.row])
+                 movie = movies[indexPath.row]
             }
+            cell.fill(movie: movie)
+
             return cell
         
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.IDENTIFIER_LOADING_TABLEVIEWCELL) as! LoadingTableViewCell
             cell.spinner.startAnimating()
+
             return cell
         }
     }
@@ -149,13 +163,15 @@ extension MoviesViewController: UITableViewDataSource {
 extension MoviesViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
+        if indexPath.section == MAIN_SECTION {
+
             var movie:Movie
             if searching {
                 movie = filteredMovies[indexPath.row]
             } else {
                 movie = movies[indexPath.row]
             }
+
             performSegue(withIdentifier: Constants.IDENTIFIER_MOVIE_VIEWCONTROLLER, sender: movie)
         }
     }
@@ -171,20 +187,22 @@ extension MoviesViewController: UISearchBarDelegate {
         MoviesAPIManager.searchBy(string: searchBar.text ?? "") { (movies, error) in
             HUD.hide()
 
-            if movies.count == 0 {
-                self.showViewInTableView(view: self.emptySearchView)
+            if error == nil {
+                if movies.count == 0 {
+                    self.showViewInTableView(view: self.emptySearchView)
 
-            } else {
-                self.removeViewFromTableView()
-                self.filteredMovies = movies
-                self.filteredMovies.sort(by: { $0.popularity ?? 0 > $1.popularity ?? 0 })
-                
-                self.movies += movies
-                self.movies = Array(Set<Movie>(self.movies)) // remove duplicates
-                self.movies.sort(by: { $0.popularity ?? 0 > $1.popularity ?? 0 })
+                } else {
+                    self.removeViewFromTableView()
+                    self.filteredMovies = movies
+                    self.filteredMovies.sort(by: { $0.popularity ?? 0 > $1.popularity ?? 0 })
+                    
+                    self.movies += movies
+                    self.movies = Array(Set<Movie>(self.movies)) // remove duplicates
+                    self.movies.sort(by: { $0.popularity ?? 0 > $1.popularity ?? 0 })
+                }
+            
+                self.tableView.reloadData()
             }
-        
-            self.tableView.reloadData()
         }
         
     }

@@ -10,7 +10,7 @@ import AlamofireObjectMapper
 
 class MoviesAPIManager: NSObject {
 
-    class func getPopupar(page: Int, completion: @escaping (_ list: [Movie], _ error: Error?) -> ()) {
+    class func getPopular(page: Int, completion: @escaping (_ list: [Movie], _ error: Error?) -> ()) {
 
         let parameters: Parameters = [
             "api_key": Constants.API_KEY,
