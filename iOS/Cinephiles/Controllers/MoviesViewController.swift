@@ -33,6 +33,8 @@ class MoviesViewController: UIViewController {
         setupTableView()
         setupSearch()
         setupReachability()
+        loadData()
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +56,7 @@ class MoviesViewController: UIViewController {
 
     func setupSearch() {
         searchController.searchBar.delegate = self
+        searchController.searchBar.tintColor = UIColor.white
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
     }
@@ -78,6 +81,7 @@ class MoviesViewController: UIViewController {
             fetchData()
         } else {
             showViewInTableView(view: noConnectionView)
+            tableView.reloadData()
         }
     }
 
