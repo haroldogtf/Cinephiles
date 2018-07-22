@@ -33,7 +33,6 @@ class MoviesViewController: UIViewController {
         setupTableView()
         setupSearch()
         setupReachability()
-        loadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
