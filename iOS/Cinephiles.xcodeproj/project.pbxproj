@@ -16,6 +16,8 @@
 		63483F862103A84400C7B7B9 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63483F852103A84400C7B7B9 /* LoadingTableViewCell.swift */; };
 		63483F882103AF9D00C7B7B9 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63483F872103AF9D00C7B7B9 /* MovieViewController.swift */; };
 		63483F8B2103ED1700C7B7B9 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63483F8A2103ED1700C7B7B9 /* ReachabilityManager.swift */; };
+		63483F8E21052B3F00C7B7B9 /* Exo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63483F8C21052B3D00C7B7B9 /* Exo-Bold.ttf */; };
+		63483F8F21052B3F00C7B7B9 /* Exo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63483F8D21052B3E00C7B7B9 /* Exo-Regular.ttf */; };
 		63893FCE210289E800A7D0D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63893FCD210289E800A7D0D8 /* AppDelegate.swift */; };
 		63893FD0210289E800A7D0D8 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63893FCF210289E800A7D0D8 /* MoviesViewController.swift */; };
 		63893FD3210289E800A7D0D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63893FD1210289E800A7D0D8 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 		63483F852103A84400C7B7B9 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoadingTableViewCell.swift; path = Cinephiles/Controllers/LoadingTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		63483F872103AF9D00C7B7B9 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MovieViewController.swift; path = Cinephiles/Controllers/MovieViewController.swift; sourceTree = SOURCE_ROOT; };
 		63483F8A2103ED1700C7B7B9 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = /Users/haroldo.gondim/Developer/Cinephiles/iOS/Cinephiles/Managers/ReachabilityManager.swift; sourceTree = "<absolute>"; };
+		63483F8C21052B3D00C7B7B9 /* Exo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-Bold.ttf"; sourceTree = "<group>"; };
+		63483F8D21052B3E00C7B7B9 /* Exo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Exo-Regular.ttf"; sourceTree = "<group>"; };
 		63893FCA210289E800A7D0D8 /* Cinephiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinephiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63893FCD210289E800A7D0D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63893FCF210289E800A7D0D8 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 		63483F722102A0D800C7B7B9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				63483F8C21052B3D00C7B7B9 /* Exo-Bold.ttf */,
+				63483F8D21052B3E00C7B7B9 /* Exo-Regular.ttf */,
 				63893FD4210289E900A7D0D8 /* Assets.xcassets */,
 				63893FD6210289E900A7D0D8 /* LaunchScreen.storyboard */,
 				63893FD9210289E900A7D0D8 /* Info.plist */,
@@ -222,8 +228,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63483F8F21052B3F00C7B7B9 /* Exo-Regular.ttf in Resources */,
 				63893FD8210289E900A7D0D8 /* LaunchScreen.storyboard in Resources */,
 				63893FD5210289E900A7D0D8 /* Assets.xcassets in Resources */,
+				63483F8E21052B3F00C7B7B9 /* Exo-Bold.ttf in Resources */,
 				63483F832103895300C7B7B9 /* LoadingTableViewCell.xib in Resources */,
 				63893FD3210289E800A7D0D8 /* Main.storyboard in Resources */,
 			);
