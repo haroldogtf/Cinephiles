@@ -43,7 +43,7 @@ class MovieViewController: UIViewController {
         }
         
         movieTitleLabel.text = movie?.title ?? ""
-        averageRating.text = String(movie?.voteAverage ?? 0) + "/ 10"
+        averageRating.text = String(movie?.voteAverage ?? 0) + " / 10"
         relaseDateLabel.text = movie?.releaseDate ?? ""
         overviewLabel.text = movie?.overview
     }
