@@ -95,11 +95,68 @@
                     </view>
                     <navigationItem key="navigationItem" title="Popular Movies" id="jhR-7D-oSS"/>
                     <connections>
+                        <outlet property="emptySearchView" destination="pM8-of-M9a" id="YaZ-QS-eZi"/>
+                        <outlet property="noConnectionView" destination="D6L-ry-Slg" id="axW-BM-FCS"/>
+                        <outlet property="noFilteredMoviesView" destination="eLi-dD-oFf" id="B1A-9u-1ex"/>
                         <outlet property="tableView" destination="w04-RR-vFn" id="Xoo-u1-8Fd"/>
                         <segue destination="Tpc-HJ-Q0P" kind="show" identifier="MovieViewController" id="xiK-gL-hpH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="D6L-ry-Slg">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Internet Connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5d-qD-Zh3">
+                            <rect key="frame" x="30.5" y="54" width="179" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Y5d-qD-Zh3" firstAttribute="centerX" secondItem="D6L-ry-Slg" secondAttribute="centerX" id="Akm-9a-dNu"/>
+                        <constraint firstItem="Y5d-qD-Zh3" firstAttribute="centerY" secondItem="D6L-ry-Slg" secondAttribute="centerY" id="WNE-6J-Cxu"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="UwO-Cc-4Pw"/>
+                </view>
+                <view contentMode="scaleToFill" id="pM8-of-M9a">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No movies found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaQ-c1-5Fg">
+                            <rect key="frame" x="55" y="54" width="130" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="FaQ-c1-5Fg" firstAttribute="centerY" secondItem="pM8-of-M9a" secondAttribute="centerY" id="Im2-RF-dKe"/>
+                        <constraint firstItem="FaQ-c1-5Fg" firstAttribute="centerX" secondItem="pM8-of-M9a" secondAttribute="centerX" id="aX9-1g-e34"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="bdY-Vc-pS4"/>
+                </view>
+                <view contentMode="scaleToFill" id="eLi-dD-oFf">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click in search for this Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cv-rc-I4U">
+                            <rect key="frame" x="10.5" y="54" width="219" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="7cv-rc-I4U" firstAttribute="centerY" secondItem="eLi-dD-oFf" secondAttribute="centerY" id="gd1-yz-4mz"/>
+                        <constraint firstItem="7cv-rc-I4U" firstAttribute="centerX" secondItem="eLi-dD-oFf" secondAttribute="centerX" id="yel-DR-TOC"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="cTT-dw-e18"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="972" y="33.733133433283363"/>
         </scene>

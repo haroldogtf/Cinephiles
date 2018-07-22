@@ -12,7 +12,10 @@ import UIKit
 class MoviesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet var noConnectionView: UIView!
+    @IBOutlet var noFilteredMoviesView: UIView!
+    @IBOutlet var emptySearchView: UIView!
+    
     var movies:[Movie] = []
     var fetchingData = false
     var page = 1
@@ -47,10 +50,22 @@ class MoviesViewController: UIViewController {
         ReachabilityManager.shared.addListener(self)
     }
 
+    func showViewInTableView(view: UIView) {
+        tableView.backgroundView = view
+        tableView.separatorStyle = .none
+    }
+
+    func removeViewFromTableView() {
+        tableView.backgroundView = nil
+        tableView.separatorStyle = .singleLine
+    }
+
     func loadData() {
         if ReachabilityManager.shared.hasConnection() {
             HUD.show(.progress)
             fetchData()
+        } else {
+            showViewInTableView(view: noConnectionView)
         }
     }
 
@@ -79,7 +94,7 @@ class MoviesViewController: UIViewController {
     func fetchMoreData() {
         fetchingData = true
         tableView.reloadSections(IndexSet(integer: 1), with: .none)
-        fetchMoreData()
+        fetchData()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -100,6 +115,9 @@ extension MoviesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             if searching {
+                if filteredMovies.count == 0 && tableView.backgroundView != emptySearchView {
+                   showViewInTableView(view: noFilteredMoviesView)
+                }
                 return filteredMovies.count
             }
             return movies.count
@@ -151,14 +169,22 @@ extension MoviesViewController: UISearchBarDelegate {
         
         HUD.show(.progress)
         MoviesAPIManager.searchBy(string: searchBar.text ?? "") { (movies, error) in
-            self.filteredMovies = movies
-            self.filteredMovies.sort(by: { $0.popularity ?? 0 > $1.popularity ?? 0 })
-            self.tableView.reloadData()
             HUD.hide()
-            
-            self.movies += movies
-            self.movies = Array(Set<Movie>(self.movies)) // remove duplicates
-            self.movies.sort(by: { $0.popularity ?? 0 > $1.popularity ?? 0 })
+
+            if movies.count == 0 {
+                self.showViewInTableView(view: self.emptySearchView)
+
+            } else {
+                self.removeViewFromTableView()
+                self.filteredMovies = movies
+                self.filteredMovies.sort(by: { $0.popularity ?? 0 > $1.popularity ?? 0 })
+                
+                self.movies += movies
+                self.movies = Array(Set<Movie>(self.movies)) // remove duplicates
+                self.movies.sort(by: { $0.popularity ?? 0 > $1.popularity ?? 0 })
+            }
+        
+            self.tableView.reloadData()
         }
         
     }
@@ -166,12 +192,14 @@ extension MoviesViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
         searchBar.text = ""
+        removeViewFromTableView()
         
         tableView.reloadData()
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searching = true
+        removeViewFromTableView()
 
         filteredMovies = movies.filter {
             $0.title?.lowercased().folding(options: .diacriticInsensitive, locale: .current)
@@ -191,6 +219,7 @@ extension MoviesViewController: NetworkStatusListener {
     
     func networkStatusDidChange(status: Reachability.Connection) {
         if status != .none && movies.count == 0 {
+            removeViewFromTableView()
             loadData()
         }
     }
