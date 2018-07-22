@@ -80,6 +80,7 @@ class MoviesViewController: UIViewController {
                 self.fetchingData = false
                 self.page += 1
                 self.movies += movies
+                self.movies = Array(Set<Movie>(self.movies)) // remove duplicates
                 self.movies.sort(by: { $0.popularity ?? 0 > $1.popularity ?? 0 })
                 self.tableView.reloadData()
             })
