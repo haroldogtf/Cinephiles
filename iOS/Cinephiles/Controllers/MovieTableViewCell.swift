@@ -24,7 +24,7 @@ class MovieTableViewCell: UITableViewCell {
     func fill(movie: Movie) {
         if let posterPath = movie.posterPath {
             let posterURL = Constants.API_URL_IMAGE + posterPath
-            moviePosterImageView.sd_setImage(with: URL(string: posterURL), placeholderImage: #imageLiteral(resourceName: "placeholder"))
+            moviePosterImageView.sd_setImage(with: URL(string: posterURL), placeholderImage: #imageLiteral(resourceName: "movie-placeholder-portrait"))
         }
         movieTitleLabel.text = movie.title
     }

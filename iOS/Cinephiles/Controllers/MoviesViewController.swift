@@ -36,6 +36,16 @@ class MoviesViewController: UIViewController {
         loadData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        setupNavigationBar()
+    }
+
+    func setupNavigationBar() {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+
     func setupTableView() {
         tableView.keyboardDismissMode = .onDrag
 
@@ -86,8 +96,6 @@ class MoviesViewController: UIViewController {
             })
         }
     }
-
-
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
