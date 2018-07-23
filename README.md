@@ -2,10 +2,10 @@
 This demo project shows the most Popular Movies.
 
 <p float="center">
-  <img src="https://github.com/haroldogtf/Cinephiles/blob/master/screenshots/screenshot1.png" width="434" />
-  <img src="https://github.com/haroldogtf/Cinephiles/blob/master/screenshots/screenshot2.png" width="434" />
-  <img src="https://github.com/haroldogtf/Cinephiles/blob/master/screenshots/screenshot3.png" width="434" />
-  <img src="https://github.com/haroldogtf/Cinephiles/blob/master/screenshots/screenshot4.png" width="434" />
+  <img src="https://github.com/haroldogtf/Cinephiles/blob/development/screenshots/screenshot1.png" width="434" />
+  <img src="https://github.com/haroldogtf/Cinephiles/blob/development/screenshots/screenshot2.png" width="434" />
+  <img src="https://github.com/haroldogtf/Cinephiles/blob/development/screenshots/screenshot3.png" width="434" />
+  <img src="https://github.com/haroldogtf/Cinephiles/blob/development/screenshots/screenshot4.png" width="434" />
 </p>
 
 **Target Devices:**
